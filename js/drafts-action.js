@@ -76,7 +76,7 @@ $(function() {
 	});
 
     $('#submit').click(function() {
-        tags = [];
+        tags = {};
         $('#tags').val("");
 
         var draft = new DraftObj();

@@ -19,9 +19,9 @@
 		<div class="container">
 			<h1><a href="index.html"><span class="glyphicon glyphicon-menu-left"></span></a> Action Step: Script</h1>
 			<div class="row">
-				<div class="col-md-8 col-sm-offset-1">
+				<div class="col-md-10">
 					<div class="form-group">
-						<input type="text" class="form-control" id="url" value="x-drafts4://x-callback-url/import_action?v=2&tintColor=%5B%0A%20%200.91%2C%0A%20%200.824%2C%0A%20%200.118%0A%5D&shouldConfirm=0&logLevel=1&uuid=FD93450B-A572-4DD4-839E-E9CE77278EBD&disposition=3&actionSteps=%5B%0A%20%20%7B%0A%20%20%20%20%22scriptText%22%20%3A%20%22%5C%2F%5C%2F%20Change%20straight%20quotes%20to%20curly%20and%20double%20hyphens%20to%20em-dashes.%5Cnfunction%20smarten%28a%29%20%7B%5Cn%20%20a%20%3D%20a.replace%28%5C%2F%28%5E%7C%5B-%5C%5Cu2014%5C%5Cs%28%5C%5C%5B%5C%22%5D%29%27%5C%2Fg%2C%20%5C%22%241%5C%5Cu2018%5C%22%29%3B%20%20%20%20%20%20%20%5C%2F%5C%2F%20opening%20singles%5Cn%20%20a%20%3D%20a.replace%28%5C%2F%27%5C%2Fg%2C%20%5C%22%5C%5Cu2019%5C%22%29%3B%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5C%2F%5C%2F%20closing%20singles%20%26%20apostrophes%5Cn%20%20a%20%3D%20a.replace%28%5C%2F%28%5E%7C%5B-%5C%5Cu2014%5C%2F%5C%5C%5B%28%5C%5Cu2018%5C%5Cs%5D%29%5C%22%5C%2Fg%2C%20%5C%22%241%5C%5Cu201c%5C%22%29%3B%20%5C%2F%5C%2F%20opening%20doubles%5Cn%20%20a%20%3D%20a.replace%28%5C%2F%5C%22%5C%2Fg%2C%20%5C%22%5C%5Cu201d%5C%22%29%3B%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5C%2F%5C%2F%20closing%20doubles%5Cn%20%20a%20%3D%20a.replace%28%5C%2F%5C%5C.%5C%5C.%5C%5C.%5C%2Fg%2C%20%5C%22%5C%5Cu2026%5C%22%29%3B%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5C%2F%5C%2F%20ellipses%5Cn%20%20a%20%3D%20a.replace%28%5C%2F--%5C%2Fg%2C%20%5C%22%5C%5Cu2014%5C%22%29%3B%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5C%2F%5C%2F%20em-dashes%5Cn%20%20return%20a%5Cn%7D%3B%5Cn%5Cn%5C%2F%5C%2F%20Apply%20Smartypants%20to%20all%20text%5Cn%5Cndraft.content%20%3D%20smarten%28draft.content%29%3B%5Cn%5Cncommit%28draft%29%3B%5Cn%22%2C%0A%20%20%20%20%22actionStepType%22%20%3A%20%22Script%22%0A%20%20%7D%0A%5D&description=&modifiedAt=2014-10-27%2012%3A25%3A11%20%2B0000&name=Smartypants&iconImageName=action_script" />
+						<input type="text" class="form-control" id="url" value="" />
 					</div>
 				</div>
 				<div class="col-md-2">
@@ -38,19 +38,40 @@
 				<div class="col-md-8">
 					<h3>Code</h3>
 					<div class="form-group" id="code"></div>
-					<button type="button" id="submit" class="btn btn-success">Run <span class="glyphicon glyphicon-play"></span></button>
+					<div class="form-inline">
+						Run as
+						<select class="form-control" id="scope">
+							<option value="action">Action Step: Script</option>
+							<option value="key">Script Key</option>
+						</select>
+						<button type="button" id="submit" class="btn btn-success">Run <span class="glyphicon glyphicon-play"></span></button>
+					</div>
 					<h3>Custom Tags</h3>
 					<div class="form-group">
 						<textarea id="tags" class="form-control" rows="4" disabled></textarea>
 					</div>
 				</div>
 			</div>
+
+			<div class="row">
+				<div class="well">
+					<h3>Credits</h3>
+					<p>This app was hacked together using this awesome components:</p>
+					<ul>
+						<li>Bootstrap: <a href="http://www.getbootstrap.com">getbootstrap.com</a></li>
+						<li>jQuery: <a href="http://jquery.com">jquery.com</a></li>
+						<li>jquery-textrange: <a href="https://github.com/dwieeb/jquery-textrange">github.com/dwieeb/jquery-textrange</a></li>
+						<li>Codemirror: <a href="http://codemirror.net">codemirror.net</a></li>
+						<li>Showdown: <a href="https://github.com/showdownjs/showdown">github.com/showdownjs/showdown</a></li>
+					</ul>
+				</div>
+			</div>
 		</div>
+
 		<script src="js/jquery-1.11.2.min.js"></script>
 		<script src="js/jquery-textrange.js"></script>
 		<script src="js/showdown.js"></script>
 		<script src="js/codemirror-compressed.js"></script>
-		<script src="js/drafts-action.js"></script>
-		<!--<script src="js/drafts-action.js"></script>-->
+		<script src="js/drafts.js"></script>
 	</body>
 </html>
