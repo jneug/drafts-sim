@@ -1,0 +1,54 @@
+<!doctype html>
+<html class="no-js" lang="">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Drafts IDE: Script Key</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="css/codemirror.css">
+		<link rel="stylesheet" href="css/cobalt.css">
+	</head>
+	<body>
+		<!--[if lt IE 8]>
+		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+		<![endif]-->
+		<div class="container">
+			<h1><a href="index.html"><span class="glyphicon glyphicon-menu-left"></span></a> Script Key</h1>
+			<div class="row">
+				<div class="col-md-8 col-sm-offset-1">
+					<div class="form-group">
+						<input type="text" class="form-control" id="url" value="x-drafts4://x-callback-url/import_key?script=%2F%2F%20coverted%20selected%20text%20to%20upper%20case%0Avar%20s%20%3D%20getSelectedText%28%29%3B%0AsetSelectedText%28s.toUpperCase%28%29%29%3B&keyType=Script&shortcutText=UPPER&keyDescription=Script%20key%3A%20Uppercase&labelText=Uppercase&uuid=A602A8F0-6A6F-4B3B-8A54-0CB01303CC06" placeholder="Paste install url" width="80%" />
+					</div>
+				</div>
+				<div class="col-md-2">
+					<button type="button" id="parse" class="btn btn-primary">Parse URL <span class="glyphicon glyphicon-download"></span></button>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<h3>Draft</h3>
+					<div class="form-group">
+						<textarea id="draft" class="form-control" rows="24">Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen sie in Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans. Ein kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie mit den nötigen Regelialien. Es ist ein paradiesmatisches Land, in dem einem gebratene Satzteile in den Mund fliegen. Nicht einmal von der allmächtigen Interpunktion werden die Blindtexte beherrscht – ein geradezu unorthographisches Leben. Eines Tages aber beschloß eine kleine Zeile Blindtext, ihr Name war Lorem Ipsum, hinaus zu gehen in die weite Grammatik. Der große Oxmox riet ihr davon ab, da</textarea>
+					</div>
+				</div>
+				<div class="col-md-8">
+					<h3>Code</h3>
+					<div class="form-group" id="code"></div>
+					<button type="button" id="submit" class="btn btn-success">Run <span class="glyphicon glyphicon-play"></span></button>
+					<button type="button" id="generate" class="btn btn-primary">Generate URL</button>
+					<a href="#" id="install" class="btn btn-warning" style="display:none;">INSTALL</button>
+				</div>
+			</div>
+		</div>
+		<script src="js/jquery-1.11.2.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/jquery-textrange.js"></script>
+		<script src="js/codemirror-compressed.js"></script>
+		<script src="js/drafts-key.js"></script>
+		<!--<script src="js/drafts-action.js"></script>-->
+	</body>
+</html>
