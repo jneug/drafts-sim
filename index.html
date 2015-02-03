@@ -1,35 +1,81 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Drafts Sim</title>
+<!doctype html>
+<html class="no-js" lang="">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Drafts IDE: Action Script</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap -->
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
-  </head>
-  <body>
-    <div class="container main">
-		<div class="jumbotron">
-			<h1>Drafts Script IDE</h1>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="css/codemirror.css">
+		<link rel="stylesheet" href="css/cobalt.css">
+		<style type="text/css">
+		#draft{background-color: #FFC; font-size: 1.2em;}
+		</style>
+	</head>
+	<body>
+		<!--[if lt IE 8]>
+		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+		<![endif]-->
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<h3>Draft</h3>
+					<div class="form-group">
+						<textarea id="draft" class="form-control" rows="20"></textarea>
+					</div>
+				</div>
+				<div class="col-md-8">
+					<h3>Code</h3>
+					<div class="form-group" id="code"></div>
+					<div class="form-inline">
+						Run as
+						<select class="form-control" id="scope">
+							<option value="action">Action Step: Script</option>
+							<option value="key">Script Key</option>
+						</select>
+						<button type="button" id="submit" class="btn btn-success">Run <span class="glyphicon glyphicon-play"></span></button>
+					</div>
+					<h3>Custom Tags</h3>
+					<div class="form-group">
+						<textarea id="tags" class="form-control" rows="4" disabled></textarea>
+					</div>
+				</div>
+			</div>
 
-			<p>Simple simulator of the <a href="http://agiletortoise.com/drafts/">Drafts iOS app</a> to help with script development.</p>
+			<div class="row">
+				<h3>Parse URL</h3>
+				<div class="col-md-10">
+					<div class="form-group">
+						<input type="text" class="form-control" id="url" value="" />
+					</div>
+				</div>
+				<div class="col-md-2">
+					<button type="button" id="parse" class="btn btn-primary">Parse URL <span class="glyphicon glyphicon-download"></span></button>
+				</div>
+			</div>
 
-			<p class="text-center"><a class="btn btn-primary btn-lg" href="index-action.html" role="button">Action Step: Script <span class="glyphicon glyphicon-indent-left"</span></a>
-			<a class="btn btn-primary btn-lg" href="index-key.html" role="button">Script Key <span class="glyphicon glyphicon-unchecked"</span></a></p>
+			<div class="row">
+				<div class="well">
+					<h3>Credits</h3>
+					<p>This app was hacked together using these awesome components:</p>
+					<ul>
+						<li>Bootstrap: <a href="http://www.getbootstrap.com">getbootstrap.com</a></li>
+						<li>jQuery: <a href="http://jquery.com">jquery.com</a></li>
+						<li>jquery-textrange: <a href="https://github.com/dwieeb/jquery-textrange">github.com/dwieeb/jquery-textrange</a></li>
+						<li>Codemirror: <a href="http://codemirror.net">codemirror.net</a></li>
+						<li>Showdown: <a href="https://github.com/showdownjs/showdown">github.com/showdownjs/showdown</a></li>
+					</ul>
+				</div>
+			</div>
 		</div>
 
-		<h2>Credits</h2>
-		<p>This app was hacked together using this awesome components:</p>
-		<ul>
-			<li>Bootstrap: <a href="http://www.getbootstrap.com">getbootstrap.com</a></li>
-			<li>jQuery: <a href="http://jquery.com">jquery.com</a></li>
-			<li>jquery-textrange: <a href="https://github.com/dwieeb/jquery-textrange">github.com/dwieeb/jquery-textrange</a></li>
-			<li>Codemirror: <a href="http://codemirror.net">codemirror.net</a></li>
-			<li>Showdown: <a href="https://github.com/showdownjs/showdown">github.com/showdownjs/showdown</a></li>
-		</ul>
-	</div>
-  </body>
+		<script src="js/jquery-1.11.2.min.js"></script>
+		<script src="js/jquery-textrange.js"></script>
+		<script src="js/showdown.js"></script>
+		<script src="js/codemirror-compressed.js"></script>
+		<script src="js/drafts.js"></script>
+	</body>
 </html>
