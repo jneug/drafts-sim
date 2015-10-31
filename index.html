@@ -44,7 +44,13 @@ Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.
 				</div>
 				<div class="col-md-8">
 					<h3>Code</h3>
-					<div class="form-group" id="code"></div>
+					<div class="form-group" id="code">
+// Script key: Make markdown list
+var listPrefix = '-';
+
+var text = getText();
+setText(text.replace(/^([+*-]\s+)?(?=\w)/gm, listPrefix+' '));
+                    </div>
                     <div class="pull-right">Help:
                         <a href="https://agiletortoise.zendesk.com/hc/en-us/articles/202771590-Action-Step-Script"
                             target="_blank">Action Step: Script</a>
@@ -55,10 +61,10 @@ Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.
 					<div class="form-inline">
 						Run as
 						<select class="form-control" id="scope">
+                            <option value="key">Script Key</option>
 							<option value="action">Action Step: Script</option>
-							<option value="key">Script Key</option>
 						</select>
-						<button type="button" id="submit" class="btn btn-success">Run <span class="glyphicon glyphicon-play"></span></button>
+						<button type="button" id="run" class="btn btn-success">Run <span class="glyphicon glyphicon-play"></span></button>
 					</div>
 					<h3>Custom Tags</h3>
 					<div class="form-group">

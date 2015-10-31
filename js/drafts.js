@@ -1,11 +1,16 @@
 $(function() { 'use strict';
+    // Initialize CodeMirror editor (see http://codemirror.net/doc/manual.html)
+    var initialCode = $('#code').text().trim(); $('#code').text('');
     var editor = new CodeMirror(document.getElementById('code'), {
+        value: initialCode,
         mode: 'javascript',
         lineNumbers: true,
         theme: 'cobalt'
     });
+    window.editor = editor; // Add editor to global scope, useful for bookmarklets
 
-    $('#submit').click(function() {
+    // Handle "Run" button
+    $('#run').click(function() {
         var code = editor.getValue();
 
         if ($('#scope').val() == 'key') {
@@ -15,6 +20,7 @@ $(function() { 'use strict';
         }
     });
 
+    // Handle "Parse URL" button
     $('#parse').click(function() {
         var url = $('#url').val();
 
@@ -25,6 +31,33 @@ $(function() { 'use strict';
         }
     });
 
+    // Temp store for last saved draft
+    var savedDraft = '';
+
+    // Save current draft text in temp store
+    $('#save').click(function(evt) {
+        evt.preventDefault();
+        savedDraft = $('#draft').val();
+        // Do some fancy animations
+        $('#save-icon').removeClass('out').addClass('in');
+        window.setTimeout(function() {
+            $('#save-icon').removeClass('in').addClass('out');
+        }, 400);
+    });
+    $('#save').click(); // Save initial draft
+
+    // Restore draft text from temp store
+    $('#restore').click(function(evt) {
+        evt.preventDefault();
+        $('#draft').val(savedDraft);
+        // Do some fancy animations
+        $('#restore-icon').removeClass('out').addClass('in');
+        window.setTimeout(function() {
+            $('#restore-icon').removeClass('in').addClass('out');
+        }, 400);
+    });
+
+    // Everything to handle Script Key code execution
     var keyScope = function(code) {
         /*  Script Key API
         getText() : Returns the full text currently being edited.
@@ -211,6 +244,7 @@ $(function() { 'use strict';
         eval(code);
     };
 
+    // Parse a drafts action install url and set editor code
     var parseAction = function(url) {
         var urlPrefix = 'x-drafts4://x-callback-url/import_action?';
         if (url.substr(0, urlPrefix.length) == urlPrefix) {
@@ -263,6 +297,7 @@ $(function() { 'use strict';
         }
     };
 
+    // Parse a drafts script key install url and set editor code
     var parseKey = function(url) {
         var urlPrefix = 'x-drafts4://x-callback-url/import_key?';
         if (url.substr(0, urlPrefix.length) == urlPrefix) {
