@@ -101,6 +101,7 @@ $(function() { 'use strict';
         eval(code);
     };
 
+    // Everything to handle Action Step: Script execution
     var actionScope = function(code) {
         /*  Action Step API
 
